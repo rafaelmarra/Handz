@@ -12,14 +12,15 @@ class ListActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private val listContent = handsNumberList
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)g
         setContentView(R.layout.activity_list)
         setSupportActionBar(toolbar)
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = AdapterRecyclerHands()
+        viewAdapter = AdapterRecyclerHands(listContent, this)
 
         recyclerView = recyclerViewHands.apply {
             setHasFixedSize(true)

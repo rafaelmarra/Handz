@@ -1,5 +1,6 @@
 package com.marrapps.handz
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import java.util.*
@@ -12,7 +13,8 @@ class SplashActivity : AppCompatActivity() {
 
         Timer().schedule(object : TimerTask() {
             override fun run() {
-
+                startActivity(Intent(this@SplashActivity, ListActivity::class.java))
+                finish()
             }
         }, 3000)
     }

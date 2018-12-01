@@ -1,26 +1,20 @@
 package com.marrapps.handz
 
+import android.content.Context
 import android.graphics.drawable.Drawable
-import java.security.AccessController.getContext
 import java.util.*
 
-fun getImageFromId(handsId: Int): Drawable {
+fun getImageFromId(handsId: Int, context: Context): Drawable? {
 
-    return getContext().getResources()
-
-}
-
-val day = GregorianCalendar.DAY_OF_MONTH
-val month = GregorianCalendar.MONTH
-val handsNumberList = getNumberList()
-
-fun getNumberList(): List<Int> {
-
-    val numberList = listOf(first(), second(), third(), fourth(), fifth(), sixth())
-
-    return numberList
+    return context.getDrawable(R.drawable.handz)
 
 }
+
+const val day = GregorianCalendar.DAY_OF_MONTH
+const val month = GregorianCalendar.MONTH
+val handsNumberList = getIdList()
+
+fun getIdList() = listOf(first(), second(), third(), fourth(), fifth(), sixth())
 
 fun first(): Int {
 
