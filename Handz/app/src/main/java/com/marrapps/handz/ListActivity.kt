@@ -34,16 +34,16 @@ class ListActivity : AppCompatActivity() {
         }
     }
 
-    fun getIdList(): List<Int> {
+    private fun getIdList(): List<Int> {
 
-        val first = first()
-        val second = second()
-        val third = third()
-        val fourth = fourth()
-        val fifth = fifth()
-        val sixth = sixth()
+        val listSize = defineListSize()
 
-        return listOf(first, second, third, fourth, fifth, sixth)
+        return when (listSize){
+            4 -> listOf(first(), second(), third(), fourth())
+            5 -> listOf(first(), second(), third(), fourth(), fifth())
+            6 -> listOf(first(), second(), third(), fourth(), fifth(), sixth())
+            else -> listOf(first(), second(), third(), fourth(), fifth())
+        }
     }
 
     private fun setDates() {
@@ -54,58 +54,72 @@ class ListActivity : AppCompatActivity() {
         month = today.month + 1
     }
 
-    fun first(): Int {
+    private fun defineListSize(): Int {
+
+        var a: Double = (month * day).toDouble()
+        a -= 100 * ((a / 100).toInt())
+        a *= 0.6
+
+        return when (a.toInt()+1){
+            1 -> 4
+            2 -> 5
+            3 -> 6
+            else -> a.toInt()+1
+        }
+    }
+
+    private fun first(): Int {
 
         var a: Double = ((month * month) + (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
-    fun second(): Int {
+    private fun second(): Int {
 
         var a: Double = ((month * month) - (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
-    fun third(): Int {
+    private fun third(): Int {
 
         var a: Double = (2 * (month * month) + (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
-    fun fourth(): Int {
+    private fun fourth(): Int {
 
         var a: Double = ((month * month) + 2 * (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
-    fun fifth(): Int {
+    private fun fifth(): Int {
 
         var a: Double = (2 * (month * month) - (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
-    fun sixth(): Int {
+    private fun sixth(): Int {
 
         var a: Double = ((month * month) - 2 * (day * day)).toDouble()
         a -= 100 * ((a / 100).toInt())
         a *= 0.8
 
-        return a.toInt()
+        return a.toInt()+1
     }
 
 }
