@@ -24,8 +24,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
         <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" tools:srcCompat="@drawable/handz"
+                android:layout_width="190dp"
+                android:layout_height="190dp" tools:srcCompat="@drawable/handz"
                 android:id="@+id/imageHands" android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/txtNumber"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
