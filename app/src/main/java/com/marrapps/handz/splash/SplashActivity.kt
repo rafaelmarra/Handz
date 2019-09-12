@@ -24,7 +24,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         val repository = Repository(this)
         presenter = SplashPresenter(repository, this)
 
-        pbSplashProgress.visibility = View.VISIBLE
+        pbSplashLoading.visibility = View.VISIBLE
         presenter.fetchNumbers()
     }
 
@@ -37,19 +37,19 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     }
 
     private fun onRetry() {
-        pbSplashProgress.visibility = View.VISIBLE
+        pbSplashLoading.visibility = View.VISIBLE
         presenter.fetchNumbers()
     }
 
     override fun onApiError() {
-        pbSplashProgress.visibility = View.INVISIBLE
+        pbSplashLoading.visibility = View.INVISIBLE
         showErrorDialog(
             "Não foi possível carregar as informações. Por favor, tente novamente mais tarde."
         ) { onRetry() }
     }
 
     override fun onConnectionError() {
-        pbSplashProgress.visibility = View.INVISIBLE
+        pbSplashLoading.visibility = View.INVISIBLE
         showErrorDialog(
             "Não foi possível conectar. Por favor, verifique sua conexão com a internet."
         ) { onRetry() }

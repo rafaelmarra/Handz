@@ -33,8 +33,8 @@ class HandsRecyclerAdapter(private val urlList: List<String>) :
 
             Picasso.get()
                 .load(url)
-                .placeholder(R.drawable.handz)
-                .error(R.drawable.handz)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.unavailable)
                 .into(itemView.ivHandImage)
         }
     }
