@@ -2,23 +2,19 @@ package com.marrapps.handz.splash
 
 import com.marrapps.handz.model.numbers.NumbersResponse
 import com.marrapps.handz.model.retrofit.Repository
-import com.marrapps.handz.model.retrofit.ServiceListener
+import com.marrapps.handz.model.retrofit.NumbersServiceListener
 
 class SplashPresenter(
     private val repository: Repository,
     private val view: SplashContract.View
-) : SplashContract.Presenter, ServiceListener {
-
-    init {
-        repository.listener = this
-    }
+) : SplashContract.Presenter, NumbersServiceListener {
 
     override fun fetchNumbers() {
-        repository.getNumbers()
+        repository.getNumbers(this)
     }
 
-    override fun onSucess(response: Any) {
-        view.onNumbersResponse(response as NumbersResponse)
+    override fun onSucess(response: NumbersResponse) {
+        view.onNumbersResponse(response)
     }
 
     override fun onError(error: Repository.ErrorType) {

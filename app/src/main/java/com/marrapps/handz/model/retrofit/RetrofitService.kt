@@ -19,13 +19,11 @@ object RetrofitService {
         .addInterceptor(httpLoggingInterceptor)
         .build()
 
-
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl("https://handznumberz.herokuapp.com/")
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
 
     fun getService(): Api = retrofit.create(Api::class.java)
 }

@@ -15,9 +15,7 @@ class Repository(private val context: Context) {
         API_ERROR
     }
 
-    var listener: ServiceListener? = null
-
-    fun getNumbers() {
+    fun getNumbers(listener: NumbersServiceListener) {
 
         if (context.isConnected()) {
 
@@ -29,19 +27,19 @@ class Repository(private val context: Context) {
                     response: Response<NumbersResponse>
                 ) {
                     response.body()?.let {
-                        listener?.onSucess(it)
+                        listener.onSucess(it)
 
-                    } ?: listener?.onError(ErrorType.API_ERROR)
+                    } ?: listener.onError(ErrorType.API_ERROR)
                 }
 
                 override fun onFailure(call: Call<NumbersResponse>, t: Throwable) {
                     Log.e("NUMBER REQUEST", t.message ?: "undefined error")
-                    listener?.onError(ErrorType.API_ERROR)
+                    listener.onError(ErrorType.API_ERROR)
                 }
             })
 
         } else {
-            listener?.onError(ErrorType.CONNECTION_ERROR)
+            listener.onError(ErrorType.CONNECTION_ERROR)
         }
     }
 }

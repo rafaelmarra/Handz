@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".mvvm.NumberListActivity"></activity>
+        <activity android:name=".BaseActivity" />
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
