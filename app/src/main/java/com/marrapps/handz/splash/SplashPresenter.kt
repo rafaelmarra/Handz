@@ -13,7 +13,7 @@ class SplashPresenter(
         repository.getNumbers(this)
     }
 
-    override fun onSucess(response: NumbersResponse) {
+    override fun onSuccess(response: NumbersResponse) {
         view.onNumbersResponse(response)
     }
 

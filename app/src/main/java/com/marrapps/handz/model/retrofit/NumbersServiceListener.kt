@@ -4,6 +4,6 @@ import com.marrapps.handz.model.numbers.NumbersResponse
 
 interface NumbersServiceListener {
 
-    fun onSucess(response: NumbersResponse)
+    fun onSuccess(response: NumbersResponse)
     fun onError(error: Repository.ErrorType)
 }

@@ -27,7 +27,7 @@ class Repository(private val context: Context) {
                     response: Response<NumbersResponse>
                 ) {
                     response.body()?.let {
-                        listener.onSucess(it)
+                        listener.onSuccess(it)
 
                     } ?: listener.onError(ErrorType.API_ERROR)
                 }

@@ -9,17 +9,17 @@ import com.marrapps.handz.model.retrofit.NumbersServiceListener
 class NumberListViewModel(private val repository: Repository): ViewModel(), NumbersServiceListener {
 
     val numberList = MutableLiveData<List<Int>>()
-    val callError = MutableLiveData<Repository.ErrorType>()
+    val numberError = MutableLiveData<Repository.ErrorType>()
 
     fun getNumbers(){
         repository.getNumbers(this)
     }
 
-    override fun onSucess(response: NumbersResponse) {
+    override fun onSuccess(response: NumbersResponse) {
         numberList.value = response.numbers
     }
 
     override fun onError(error: Repository.ErrorType) {
-        callError.value = error
+        numberError.value = error
     }
 }

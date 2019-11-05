@@ -40,7 +40,7 @@ class NumberListActivity : AppCompatActivity() {
             rvNumbersList.adapter = NumbersListAdapter(it)
         })
 
-        viewModel.callError.observe(this, Observer {
+        viewModel.numberError.observe(this, Observer {
             val message = when (it) {
                 Repository.ErrorType.API_ERROR ->
                     "Não foi possível carregar as informações. Por favor, tente novamente mais tarde."

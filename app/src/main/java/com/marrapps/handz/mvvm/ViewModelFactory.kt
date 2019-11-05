@@ -22,6 +22,7 @@ class ViewModelFactory(context: Context) : ViewModelProvider.NewInstanceFactory(
 
                 isAssignableFrom(AnotherViewModel::class.java) ->
                     AnotherViewModel(repository)
+
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
             }
