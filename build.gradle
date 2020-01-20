@@ -1,7 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.3.41'
     repositories {
-        maven { url "http://painel.repodep.des.cloud.ihf:80/artifactory/android-devel" }
         google()
         jcenter()
     }
@@ -14,7 +13,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "http://painel.repodep.des.cloud.ihf:80/artifactory/android-devel" }
         google()
         jcenter()
     }
